@@ -7,7 +7,7 @@ spring:
   datasource:
     username: root        #数据库登陆用户名
     password: root1234        #数据库登陆密码
-    url: jdbc:mysql://127.0.0.1:3306/bianchengbang       #数据库url
+    url: jdbc:mysql://127.0.0.1:3306/bianchengbang_jdbc       #数据库url
     driver-class-name: com.mysql.jdbc.Driver                  #数据库驱动
 ############################### 不检查 spring.config.import=configserver:##################
 #  cloud:
