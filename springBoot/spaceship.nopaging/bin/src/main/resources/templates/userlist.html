@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户管理</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div>
+                    <ul  class="nav navbar-nav" >
+                        <li><a href="/userlist">用户管理</a></li>
+                        <li><a href="#">书籍管理</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div>
+        <h2>用户管理</h2>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table_list">
+            <thead>
+            <tr>
+                <th width="20%">编号</th>
+                <th width="20%">用户名</th>
+                <th width="20%">电子邮箱</th>
+                <th width="20%">手机</th>
+                <th width="20%">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user:${users}">
+                <td height="40px"><a th:text="${user.id}" data-toggle="modal" data-target="#myModal" onclick="values(this)"></a></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.mobile}"></td>
+                <td><a href="#" class="delete_a" th:value="${user.id}">删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/jquery-2.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
+
