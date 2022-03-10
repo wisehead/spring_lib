@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>micro-service-cloud-api</module>
+        <module>micro-service-cloud-api</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
