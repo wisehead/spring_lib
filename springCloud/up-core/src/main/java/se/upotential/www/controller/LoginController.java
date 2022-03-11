@@ -27,4 +27,19 @@ public class LoginController {
             return "login";
         }
     }
+    @RequestMapping("/user/signup")
+    public String doSignUp(User user, Map<String, Object> map, HttpSession session) {
+        //从数据库中查询用户信息
+        int ret = userService.addUser(user);
+        if (ret != 0) {
+            //session.setAttribute("loginUser", loginUser);
+            log.info("注册成功，用户名：" + user.getUserName() + ", EMail:" + user.getEmail());
+            //防止重复提交使用重定向
+            return "redirect:/main.html";
+        } else {
+            map.put("msg", "用户名或密码错误");
+            log.error("注册失败");
+            return "login";
+        }
+    }
 }
