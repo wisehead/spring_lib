@@ -1,4 +1,4 @@
-package se./upotential.www.bean;
+package se.upotential.www.bean;
 public class User {
     private Integer id;
     private String userId;
