@@ -1,7 +1,6 @@
 package se.upotential.www.utils;
 
 import com.github.pagehelper.Page;
-//com/github/pagehelper/pagehelper/4.2.1
 
 /**
  *

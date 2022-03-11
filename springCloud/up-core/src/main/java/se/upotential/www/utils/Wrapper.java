@@ -1,13 +1,11 @@
 package se.upotential.www.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.github.pagehelper.Page;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import java.io.Serializable;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-//import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class Wrapper<T> implements Serializable {
