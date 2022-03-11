@@ -1,4 +1,4 @@
-package se.upotential.www.mybatis;
+package se.upotential.www;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
