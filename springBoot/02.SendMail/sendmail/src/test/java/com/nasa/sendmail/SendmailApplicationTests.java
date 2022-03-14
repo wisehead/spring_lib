@@ -65,4 +65,22 @@ public class SendmailApplicationTests {
 
 	}
 
+	@Test
+	public void sendInlineMail() throws Exception {
+
+		MimeMessage mimeMessage = mailSender.createMimeMessage();
+
+		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+		helper.setFrom("chenhui_bupt@126.com");
+		helper.setTo("chenhui@elensdata.com");
+		helper.setSubject("主题：嵌入静态资源");
+		helper.setText("<html><body><img src=\"cid:weixin\" ></body></html>", true);
+
+		FileSystemResource file = new FileSystemResource(new File("weixin.jpg"));
+		helper.addInline("weixin", file);
+
+		mailSender.send(mimeMessage);
+
+	}
+
 }
