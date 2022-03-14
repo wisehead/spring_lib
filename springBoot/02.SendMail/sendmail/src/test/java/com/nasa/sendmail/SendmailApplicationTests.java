@@ -14,6 +14,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -116,6 +118,30 @@ public class SendmailApplicationTests {
 		//模板渲染，渲染的结果将被保存到 out 中 ，将out 中的 html 字符串发送即可
 		template.process(user, out);
 		helper.setText(out.toString(),true);
+		mailSender.send(mimeMessage);
+	}
+
+	@Autowired
+	TemplateEngine templateEngine;
+
+	@Test
+	public void sendThymeleafMail() throws MessagingException {
+		MimeMessage mimeMessage = mailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+		helper.setSubject("这是一封测试邮件");
+		helper.setFrom("chenhui_bupt@126.com");
+		helper.setTo("chenhui@elensdata.com");
+		//helper.setFrom("1510161612@qq.com");
+		//helper.setTo("25xxxxx755@qq.com");
+		helper.setCc("alex.chenhui@gmail.com");
+		//helper.setBcc("98@qq.com");
+		helper.setSentDate(new Date());
+		Context context = new Context();
+		context.setVariable("username", "javaboy");
+		context.setVariable("num","000001");
+		context.setVariable("salary", "99999");
+		String process = templateEngine.process("mail.html", context);
+		helper.setText(process,true);
 		mailSender.send(mimeMessage);
 	}
 }
