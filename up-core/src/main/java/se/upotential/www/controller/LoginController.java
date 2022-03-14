@@ -1,10 +1,12 @@
 package se.upotential.www.controller;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import se.upotential.www.bean.User;
 import se.upotential.www.service.UserService;
+import se.upotential.www.utils.UUIDUtils;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -34,11 +36,14 @@ public class LoginController {
     
     @RequestMapping("/user/signup")
     public String doSignUp(User user, Map<String, Object> map, HttpSession session) {
+        user.setStatus(0);
+        String token = UUIDUtils.getUUID()+ UUIDUtils.getUUID();
+        user.setToken(token);
         //从数据库中查询用户信息
         int ret = userService.addUser(user);
         if (ret != 0) {
             //session.setAttribute("loginUser", loginUser);
-            log.info("注册成功，用户名：" + user.getUserName() + ", EMail:" + user.getEmail());
+            log.info("确认邮件已发出，用户名：" + user.getUserName() + ", EMail:" + user.getEmail());
             //防止重复提交使用重定向
             return "redirect:/main.html";
         } else {

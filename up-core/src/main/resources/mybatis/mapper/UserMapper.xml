@@ -13,8 +13,8 @@
     </sql>
     <!-- 增加用户信息 -->
     <insert id="addUser" parameterType="se.upotential.www.bean.User">
-        insert into user(user_name, password, email )
-        values( #{userName,jdbcType=VARCHAR},  #{password,jdbcType=VARCHAR},  #{email,jdbcType=VARCHAR} )
+        insert into user(user_name, password, email, role, token, status)
+        values( #{userName,jdbcType=VARCHAR},  #{password,jdbcType=VARCHAR},  #{email,jdbcType=VARCHAR}, #{role ,jdbcType=INTEGER},  #{token,jdbcType=VARCHAR}, #{status ,jdbcType=INTEGER} )
     </insert>
     <!--根据用户名密码查询用户信息-->
     <!--application.yml 中通过 type-aliases-package 指定了实体类的为了，因此-->

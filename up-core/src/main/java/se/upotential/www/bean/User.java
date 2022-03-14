@@ -5,6 +5,10 @@ public class User {
     private String userName;
     private String password;
     private String email;
+    private Integer role;
+    private String token;
+    private Integer status;
+
     public Integer getId() {
         return id;
     }
@@ -34,5 +38,24 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
+    }
+
+    public String getToken() {
+        return token;
+    }
+    public void setToken(String token) {
+        this.token = token == null ? null : token.trim();
+    }
+    public Integer getStatus() {
+        return status;
+    }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+    public Integer getRole() {
+        return role;
+    }
+    public void setRole(Integer role) {
+        this.role = role;
     }
 }
