@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
         ///checkCode?code=xxx即是我们点击邮件链接之后进行更改状态的
         String context = "<h1>此邮件为官方激活邮件！请点击下面链接完成激活操作！</h1> <a href=\"http://localhost:8001/selectCode?token="+token+"\">激活请点击:"+token+"</a> ";
         //发送激活邮件
-        mailService.sendHtmlMail (user.getEmail(),subject,context);
+        //mailService.sendHtmlMail (user.getEmail(),subject,context);
         return ret;
     }
 }
