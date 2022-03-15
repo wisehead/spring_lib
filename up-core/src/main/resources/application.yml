@@ -9,6 +9,18 @@ spring:
     password: root1234        #数据库登陆密码
     url: jdbc:mysql://127.0.0.1:3306/upotential       #数据库url
     driver-class-name: com.mysql.jdbc.Driver                  #数据库驱动
+  ################################################## Mail 配置 ##################################
+  mail:
+    host: smtp.126.com
+    username: chenhui_bupt@126.com
+    password: XDWZKAIIXNPNYNYF
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 ###################################### MyBatis 配置######################################
 mybatis:
   # 指定 mapper.xml 的位置
